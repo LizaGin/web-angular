@@ -1,0 +1,111 @@
+.products
+{
+    grid-area: products;
+    display: grid;
+    grid-template:  'title'
+                    'items';
+}
+
+.products__title
+{
+    grid-area: title;
+    text-align: center;
+}
+
+.products__items
+{
+    grid-area: items;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card
+{
+  display: grid;
+  grid-template:  'card-img' 250px
+                  'card-info';
+    margin: 0 0 30px 30px;
+    text-align: left;
+    width: 250px;
+    border: 1px solid lightgray;
+}
+
+.card:hover
+{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card__info
+{
+    grid-area: card-info;
+    padding-left: 10px;
+}
+
+.card__img
+{
+    grid-area: card-img;
+    margin: auto;
+    overflow: hidden;
+    height: 250px;
+}
+
+.info-img
+{
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+    width: 100%;
+}
+
+.info-img:hover
+{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.content,
+input[id='hider'],
+input[id='hider']:checked ~ .short-content,
+input[id='hider']:checked ~ label[for='hider']
+{
+    display: none;
+}
+
+.content,
+.short-content
+{
+    min-width: 400px;
+    margin-top: 40px;
+}
+
+input[id='hider']:checked ~ .content,
+.short-content
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label[for='hider']
+{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px)
+{
+ .card
+  {
+    margin: 0 0 30px 0;
+  }
+
+  .products__items
+  {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+}
