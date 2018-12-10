@@ -1,0 +1,70 @@
+.blue-link
+{
+    text-decoration: none;
+    color: #7b9ccc;
+}
+
+.lightgray-text
+{
+    color: #778899;
+}
+
+.headline
+{
+    display: grid;
+    grid-area: headline;
+    grid-template:  'information img'
+                    'horizontal-line horizontal-line'
+                    /70% 30%;
+    border-bottom: 2px solid #d3d3d3;
+    margin: 0 0 50px 50px;
+}
+
+.headline__information
+{
+    grid-area: information;
+    display: grid;
+    grid-template: 'first'
+                    'second'
+                    'third';
+    margin: 0 0 50px 50px;
+}
+
+.headline__information div
+{
+  padding-bottom: 5px;
+}
+
+.first
+{
+    grid-area: first;
+}
+
+.first a,
+.first span
+{
+  padding-right: 10px;
+}
+
+.second
+{
+    grid-area: second;
+}
+
+.third
+{
+    grid-area: third;
+}
+
+.headline__img
+{
+    grid-area: img;
+    width: 220px;
+    height: 150px;
+}
+
+.bird
+{
+    width: 100%;
+    margin: 30px 0 0 0;
+}
