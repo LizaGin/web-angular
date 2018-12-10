@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+.blue-link
+{
+    text-decoration: none;
+    color: #7b9ccc;
+}
+
+.lightgray-text
+{
+    color: #778899;
+}
+
+.gradient-button,
+.blue-text-button
+{
+    height: 35px;
+    cursor: pointer;
+}
+
+.gradient-button
+{
+    border: 1px solid #eee;
+    background: linear-gradient(45deg, #ffcaca, #d0e1fa);
+    opacity: .6;
+}
+
+.blue-text-button
+{
+    margin: 15px;
+    border: none;
+    background: none;
+    color: #98b6e2;
+    font-weight: bold;
+    font-size: 16px;
+}

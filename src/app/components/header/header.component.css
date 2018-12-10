@@ -1,14 +1,3 @@
-.blue-link
-{
-    text-decoration: none;
-    color: #7b9ccc;
-}
-
-.lightgray-text
-{
-    color: #778899;
-}
-
 .headline
 {
     display: grid;
@@ -17,7 +6,8 @@
                     'horizontal-line horizontal-line'
                     /70% 30%;
     border-bottom: 2px solid #d3d3d3;
-    margin: 0 0 50px 50px;
+    margin: 0 0 50px 0;
+    padding: 20px;
 }
 
 .headline__information
@@ -27,7 +17,6 @@
     grid-template: 'first'
                     'second'
                     'third';
-    margin: 0 0 50px 50px;
 }
 
 .headline__information div
@@ -56,15 +45,40 @@
     grid-area: third;
 }
 
-.headline__img
+.headline__img-container
 {
     grid-area: img;
-    width: 220px;
-    height: 150px;
+    max-width: 220px;
+    max-height: 150px;
 }
 
-.bird
+.headline__img
 {
     width: 100%;
     margin: 30px 0 0 0;
+}
+
+@media screen and (max-width: 768px)
+{
+      .headline
+  {
+      display: grid;
+      grid-area: headline;
+      grid-template: 'information'
+      'img'
+      'horizontal-line';
+  }
+
+  .first a,
+  .first span
+  {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .headline__img-container
+  {
+      display: flex;
+      margin: auto;
+  }
 }
