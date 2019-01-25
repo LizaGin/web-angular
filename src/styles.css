@@ -33,7 +33,26 @@ body
     margin: 15px;
     border: none;
     background: none;
-    color: #98b6e2;
+    color: #4d89e4;
     font-weight: bold;
     font-size: 16px;
+}
+
+.blue-button:disabled,
+.gradient-button:disabled
+{
+  cursor: default;
+  opacity: .6;
+}
+
+.user-input.ng-touched.ng-invalid
+{
+  border: 2px solid rgba(255, 0, 0, .5);
+  border-radius: 5px;
+}
+
+.user-input.ng-touched.ng-valid
+{
+  border: 2px solid rgba(0, 255, 13, 0.5);
+  border-radius: 5px;
 }

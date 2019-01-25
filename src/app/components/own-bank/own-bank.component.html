@@ -1,0 +1,99 @@
+<form #ownBankForm="ngForm" class="own-bank-form" (ngSubmit)="onSubmit(ownBankForm)" novalidate>
+  <div class="bank-card">
+    <img src="https://www.best2pay.net/uploads/files/RENEWED%20LOGOS%202%201.png"
+         alt="банковские карты"
+         class="card-icon"
+         width="300px">
+    <input
+      name="cardDate"
+      appCheckDate
+      ngModel
+      #cardDate="ngModel"
+      type="text"
+      id="card-date"
+      class="user-input card-input"
+      placeholder="ММ/ГГ"
+      pattern="^[0-9]{2}/[0-9]{2}$"
+      minlength="5"
+      maxlength="5"
+    >
+    <input
+      name="cardNumber"
+      ngModel
+      #cardNumber="ngModel"
+      type="text"
+      id="card-number"
+      class="user-input card-input"
+      placeholder="Номер карты"
+      pattern="^[0-9]{16}$"
+      minlength="16"
+      maxlength="16"
+    >
+    <input
+      name="cardCvc"
+      ngModel
+      #cardCvc="ngModel"
+      type="text"
+      id="card-cvc"
+      class="user-input card-input"
+      placeholder="CVC"
+      pattern="[0-9]{3}"
+      minlength="3"
+      maxlength="3"
+    >
+  </div>
+  <div class="inputs">
+    <p>
+      <label for="summary" class="lightgray-text">Сумма</label>
+      <input
+        class="user-input"
+        name="summary"
+        ngModel
+        #summary="ngModel"
+        type="number"
+        id="summary"
+        placeholder="от 1000р до 75000р"
+        pattern="^[0-9]{4,5}$"
+        min="1000"
+        max="75000"
+        maxlength="5"
+        minlength="4"
+      >
+    </p>
+    <p>
+      <label for="comment" class="lightgray-text left">Коментарий</label>
+      <input
+        class="user-input"
+        name="comment"
+        ngModel
+        #comment="ngModel"
+        type="text"
+        id="comment"
+        placeholder="до 150 символов"
+        minlength="0"
+        maxlength="150"
+      >
+    </p>
+    <p>
+      <label for="email" class="lightgray-text">Ваша эл. почта</label>
+      <input
+        class="user-input"
+        name="email"
+        ngModel
+        #email="ngModel"
+        type="text"
+        id="email"
+        placeholder="mail@.ru"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+      >
+    </p>
+  </div>
+  <div class="buttons">
+    <button class="gradient-button" type="submit" [disabled]="ownBankForm.invalid || ownBankForm.untouched">
+      Заплатить
+    </button>
+    <button class="blue-text-button" type="reset" [disabled]="ownBankForm.untouched || ownBankForm.pristine">
+      Очистить форму
+    </button>
+  </div>
+</form>

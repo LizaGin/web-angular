@@ -1,0 +1,41 @@
+.general-layout
+{
+    display: grid;
+    grid-template:  '. header .' 300px
+                    '. main . ' auto
+                    '. footer .' auto
+                    /15% 70% 15%;
+    margin: 10px 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: 'Helvetica', 'Trebuchet MS', sans-serif;
+}
+
+.header
+{
+  grid-area: header;
+}
+
+.main
+{
+  grid-area: main;
+}
+
+.footer
+{
+  grid-area: footer;
+  margin-bottom: 60px;
+}
+
+@media screen and (max-width: 768px)
+{
+ .general-layout
+  {
+      display: grid;
+      grid-template: 'header' 550px
+          ' main ' auto
+          ' footer ' auto;
+      margin: 0;
+      box-shadow: none;
+  }
+
+}

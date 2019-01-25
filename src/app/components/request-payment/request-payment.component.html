@@ -1,0 +1,101 @@
+<div class="request-pay">
+  <form #ownBankForm="ngForm" class="request-pay-form" (ngSubmit)="onSubmit(requestPayForm)" novalidate>
+    <p>
+      <label for="inn" class="lightgray-text">ИНН</label>
+      <input
+        name="inn"
+        ngModel
+        #inn="ngModel"
+        class="user-input"
+        type="text"
+        id="inn"
+        placeholder="ИНН  получателя"
+        pattern="[0-9]{10,12}"
+        minlength="10"
+        maxlength="12"
+      >
+    </p>
+    <p>
+      <label for="bik" class="lightgray-text">БИК</label>
+      <input
+        name="bik"
+        ngModel
+        #bik="ngModel"
+        class="user-input"
+        type="text"
+        id="bik"
+        placeholder="9 цифр"
+        pattern="[0-9]{9}"
+        minlength="9"
+        maxlength="9"
+      >
+    </p>
+    <p>
+      <label for="number" class="lightgray-text">Номер счёта</label>
+      <input
+        name="number"
+        ngModel
+        #number="ngModel"
+        class="user-input"
+        type="text"
+        id="number"
+        placeholder="20 цифр"
+        pattern="[0-9]{20}"
+        minlength="20"
+        maxlength="20"
+      >
+    </p>
+    <p>
+      <label for="nds" class="lightgray-text">НДС</label>
+      <select id="nds" required>
+        <option value="" disabled selected hidden>
+          Выберите один из вариантов
+        </option>
+        <option>НДС 18%</option>
+        <option>НДС 10%</option>
+        <option>без НДС</option>
+      </select>
+    </p>
+    <p>
+      <label for="summary" class="lightgray-text">Сумма</label>
+      <input
+        name="sum"
+        ngModel
+        #sum="ngModel"
+        class="user-input"
+        type="text"
+        id="summary"
+        placeholder="от 1000р до 75000р"
+        pattern="[0-9]{4,5}"
+        minlength="4"
+        maxlength="5"
+      >
+    </p>
+    <p>
+      <label for="phone-number" class="lightgray-text">Номер телефона</label>
+      <input
+        class="user-input"
+        type="text"
+        id="phone-number"
+        placeholder="+79ХХХХХХХХХ"
+        pattern="^+79[0-9]{9}$"
+      >
+    </p>
+    <p>
+      <label for="email" class="lightgray-text">Электронная почта</label>
+      <input
+        class="user-input"
+        type="text"
+        id="email"
+        placeholder="mail@.ru"
+        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+      >
+    </p>
+    <button class="gradient-button" type="submit" [disabled]="requestPayForm.invalid || requestPayForm.untouched ">
+      Получить файл для интернет-банка
+    </button>
+    <button class="blue-text-button" type="reset" [disabled]="requestPayForm.untouched || requestPayForm.pristine">
+      Очистить форму
+    </button>
+  </form>
+</div>
