@@ -1,0 +1,11 @@
+label
+{
+  width: 80px;
+}
+
+label,
+input
+{
+  display: inline-block;
+  margin: 10px 0px;
+}

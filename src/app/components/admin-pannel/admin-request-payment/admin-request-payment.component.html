@@ -1,0 +1,20 @@
+<button type="button" class="gradient-button" (click)="getData()">Получить данные</button>
+<button class="blue-text-button" (click)="LoginService.logOut()">Выйти</button>
+<table>
+  <tr class="table__header">
+      <td>БИК</td>
+      <td>ИНН</td>
+      <td>Сколько</td>
+      <td>Номер счета</td>
+      <td>Номер телефона</td>
+      <td>За что</td>
+  </tr>
+  <tr *ngFor="let value of Requests;">
+      <td>{{value.bik}}</td>
+      <td>{{value.inn}}</td>
+      <td>{{value.amount}}</td>
+      <td>{{value.number_ch}}</td>
+      <td>{{value.phone_n}}</td>
+      <td>{{value.nds}}</td>
+  </tr>
+</table>

@@ -1,0 +1,17 @@
+.active
+{
+  background-color: #d3d3d3;
+}
+
+a
+{
+  color: black;
+  text-decoration: none;
+}
+
+div
+{
+  display: inline-block;
+  height: 50px;
+  margin: 10px;
+}

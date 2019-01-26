@@ -14,5 +14,7 @@ export class OwnBankComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(f : NgForm) {
 
+  }
 }
