@@ -1,24 +1,22 @@
 <button type="button" class="gradient-button" (click)="getData()">Получить данные</button>
-<button type="button" class="blue-text-button" (click)="loginService.logOut()">Выйти</button>
+<button type="button" class="blue-text-button" (click)="logOut()">Выйти</button>
 <table>
   <tr class="table__header">
     <td>Номер карты</td>
-    <td>CVV</td>
-    <td>ММ\ГГ</td>
+    <td>CVС</td>
     <td>Сумма</td>
-    <td>Email</td>
     <td>Комментарий</td>
+    <td>Email</td>
     <td>Безопасный</td>
     <td>Изменить безопасность</td>
   </tr>
   <tr *ngFor="let value of Requests; let i = index">
-    <td>{{value.card}}</td>
+    <td>{{value.number}}</td>
     <td>{{value.cvc}}</td>
-    <td>{{value.date}}</td>
-    <td>{{value.email}}</td>
-    <td>{{value.amount}}</td>
+    <td>{{value.sum}}</td>
     <td>{{value.comment}}</td>
-    <td>{{value.isSecure}}</td>
-    <td><button type="button" (click)="changeSecure(value.id, i)">Изменить</button></td>
+    <td>{{value.email}}</td>
+    <td>{{value.secure}}</td>
+    <td><button type="button" (click)="changeSecure(value._id, i)">Изменить</button></td>
   </tr>
 </table>

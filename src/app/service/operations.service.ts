@@ -1,68 +1,49 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class OperationsService {
-    headersToSend: HttpHeaders;
-    constructor(private http: HttpClient) {
-        this.headersToSend = new HttpHeaders(
-            {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Methods': 'GET, POST, OPTIONS, PATCH'
-            }
-        );
-    }
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Access-Control-Request-Methods': 'GET,POST,PATCH'
+  });
 
-    webAuth(data) {
-        return this.http.post('http://localhost:4300/login', data,
-            {observe: 'response', responseType: 'json', headers: this.headersToSend});
-    }
+  constructor(private http: HttpClient) { }
 
-    checkCookies(cookie: string) {
-        const headersToSend = new HttpHeaders(
-            {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Methods': 'GET, POST, OPTIONS, PATCH',
-                'X-Authorization': cookie
-            }
-        );
-        return this.http.get('http://localhost:4500/checkCookies',
-            {observe: 'response', responseType: 'json', headers: headersToSend});
-    }
+  storeCardPayment(payment) {
+    return this.http.post('http://localhost:4300/cardPayment', payment,
+    { observe: 'response', responseType: 'json', headers: this.headers });
+  }
 
-    getCSRFToken(data) {
-        return this.http.post('http://localhost:4500/getCSRFToken', data,
-            {observe: 'response', responseType: 'json', headers: this.headersToSend});
-    }
+  requestPayment(payment) {
+    return this.http.post('http://localhost:4300/requestPayment', payment,
+    { observe: 'response', responseType: 'json', headers: this.headers });
+  }
 
-    storePaymentsByCard(data) {
-        return this.http.post('http://localhost:4500/storeCardPayments', data,
-            {observe: 'response', responseType: 'text', headers: this.headersToSend});
-    }
+  filePayment(payment) {
+    return this.http.post('http://localhost:4300/filePayment', payment,
+    { observe: 'response', responseType: 'text', headers: this.headers });
+  }
 
-    storePaymentsRequest(data) {
-        return this.http.post('http://localhost:4500/storePaymentsRequests', data,
-            {observe: 'response', responseType: 'text', headers: this.headersToSend});
-    }
+  getFilePayment() {
+    return this.http.get('http://localhost:4300/filePayment',
+    { observe: 'response', responseType: 'json', headers: this.headers });
+  }
 
-    getPaymentsToDownload(data) {
-        return this.http.post('http://localhost:4500/getPaymentsToDownload', data,
-            {observe: 'response', responseType: 'text', headers: this.headersToSend});
-    }
+  getCardPayment() {
+    return this.http.get('http://localhost:4300/cardPayment',
+    { observe: 'response', responseType: 'json', headers: this.headers });
+  }
 
-    getPaymentsRequests(): Observable<any> {
-        return this.http.get('http://localhost:4500/getPaymentsRequests',
-            {observe: 'response', responseType: 'json', headers: this.headersToSend});
-    }
+  getPayment() {
+    return this.http.get('http://localhost:4300/requestPayment',
+    { observe: 'response', responseType: 'json', headers: this.headers });
+  }
 
-    getPaymentsPay(): Observable<any> {
-        return this.http.get('http://localhost:4500/getPaymentsPay',
-            {observe: 'response', responseType: 'json'});
-    }
-
-    changeSecurity(id) {
-        return this.http.patch('http://localhost:4500/changeSecurity', {'id': id},
-            {observe: 'response', responseType: 'text', headers: this.headersToSend});
-    }
+  changeSecurity(id, secure) {
+    return this.http.patch('http://localhost:4300/cardPayment/' + `${id}`, { secure },
+        {observe: 'response', responseType: 'json', headers: this.headers});
+  }
 }

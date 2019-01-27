@@ -1,4 +1,4 @@
-<form action="" class="another-bank-form" (ngSubmit)="onSubmit(anotherBankForm)" novalidate>
+<form #anotherBankForm="ngForm" class="another-bank-form" (ngSubmit)="onSubmit(anotherBankForm)" novalidate>
   <div>
     <p>
       <label for="who" class="lightgray-text">Отправитель</label>
@@ -59,7 +59,12 @@
     </p>
     <p>
       <label for="nds" class="lightgray-text">НДС</label>
-      <select id="nds" required>
+      <select name="nds"
+        ngModel
+        #nds="ngModel"
+        id="nds"
+        required
+      >
           <option value="" disabled selected hidden>
               Выберите один из вариантов
           </option>

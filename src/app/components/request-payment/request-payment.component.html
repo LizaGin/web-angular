@@ -1,5 +1,5 @@
 <div class="request-pay">
-  <form #ownBankForm="ngForm" class="request-pay-form" (ngSubmit)="onSubmit(requestPayForm)" novalidate>
+  <form #f="ngForm" class="request-pay-form" (ngSubmit)="onSubmit(f)" novalidate>
     <p>
       <label for="inn" class="lightgray-text">ИНН</label>
       <input
@@ -33,9 +33,9 @@
     <p>
       <label for="number" class="lightgray-text">Номер счёта</label>
       <input
-        name="number"
+        name="account"
         ngModel
-        #number="ngModel"
+        #account="ngModel"
         class="user-input"
         type="text"
         id="number"
@@ -47,7 +47,13 @@
     </p>
     <p>
       <label for="nds" class="lightgray-text">НДС</label>
-      <select id="nds" required>
+      <select
+        name="nds"
+        ngModel
+        #nds="ngModel"
+        id="nds"
+        required
+        >
         <option value="" disabled selected hidden>
           Выберите один из вариантов
         </option>
@@ -74,6 +80,9 @@
     <p>
       <label for="phone-number" class="lightgray-text">Номер телефона</label>
       <input
+        name="phone"
+        ngModel
+        #phone="ngModel"
         class="user-input"
         type="text"
         id="phone-number"
@@ -82,19 +91,22 @@
       >
     </p>
     <p>
-      <label for="email" class="lightgray-text">Электронная почта</label>
+      <label for="e-mail" class="lightgray-text">Электронная почта</label>
       <input
+        name="email"
+        ngModel
+        #email="ngModel"
         class="user-input"
         type="text"
-        id="email"
+        id="e-mail"
         placeholder="mail@.ru"
         pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
       >
     </p>
-    <button class="gradient-button" type="submit" [disabled]="requestPayForm.invalid || requestPayForm.untouched ">
-      Получить файл для интернет-банка
+    <button class="gradient-button" type="submit" [disabled]="f.invalid">
+      Создать платёж
     </button>
-    <button class="blue-text-button" type="reset" [disabled]="requestPayForm.untouched || requestPayForm.pristine">
+    <button class="blue-text-button" type="reset" [disabled]="f.untouched || f.pristine">
       Очистить форму
     </button>
   </form>

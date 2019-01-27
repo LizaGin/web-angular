@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +20,8 @@ import { LoginGuard } from './guard/login.guard';
 import { AdminCardPaymentComponent } from './components/admin-pannel/admin-card-payment/admin-card-payment.component';
 import { AdminRequestPaymentComponent } from './components/admin-pannel/admin-request-payment/admin-request-payment.component';
 import { AdminGuard } from './guard/admin.guard';
+import { TokenInterceptorService } from './service/token.service';
+import { LoginService } from './service/login.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'page' },
@@ -70,7 +72,12 @@ const routes: Routes = [
     HttpClientModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [LoginService, LoginGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
       if (response.ok) {
         localStorage.setItem('jwt', response.headers.get('x-set-authorization'));
         const role = response.body['role'];
-        console.log(role);
         this.auth.setRole(role);
 
         if (role === 'admin') {

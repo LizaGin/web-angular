@@ -6,7 +6,7 @@ const router = express.Router();
 
 const secretKey = 'secretsecretsecretsecretsecretsecretsecretsecretsecretsecret';
 
-const User = require('./user');
+const {User, Payment, requestPayment, FilePayment } = require('./model');
 
 const db = 'mongodb://admin:admin1@ds211865.mlab.com:11865/webdhtml';
 mongoose.connect(db, { useNewUrlParser: true });

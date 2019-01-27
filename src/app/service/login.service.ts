@@ -36,8 +36,8 @@ export class LoginService {
   }
 
   logOut() {
-    this.role = undefined;
-    this.router.navigate['/login'];
     localStorage.removeItem('jwt');
+    this.role = undefined;
+    this.router.navigate(['login']);
   }
 }

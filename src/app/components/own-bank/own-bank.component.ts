@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { summaryFileName } from '@angular/compiler/src/aot/util';
+import {OperationsService} from '../../service/operations.service'
 
 @Component({
   selector: 'app-own-bank',
@@ -9,12 +9,17 @@ import { summaryFileName } from '@angular/compiler/src/aot/util';
 })
 export class OwnBankComponent implements OnInit {
 
-  constructor() { }
+  constructor(private operationsService : OperationsService) { }
 
   ngOnInit() {
   }
 
   onSubmit(f : NgForm) {
-
+    const payment = f.value;
+    this.operationsService.storeCardPayment(payment).subscribe(response => {
+      if (response.ok) {
+        f.resetForm();
+      }
+    });
   }
 }

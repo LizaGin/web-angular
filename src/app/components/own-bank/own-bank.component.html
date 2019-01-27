@@ -5,10 +5,10 @@
          class="card-icon"
          width="300px">
     <input
-      name="cardDate"
+      name="date"
       appCheckDate
       ngModel
-      #cardDate="ngModel"
+      #date="ngModel"
       type="text"
       id="card-date"
       class="user-input card-input"
@@ -18,9 +18,9 @@
       maxlength="5"
     >
     <input
-      name="cardNumber"
+      name="number"
       ngModel
-      #cardNumber="ngModel"
+      #number="ngModel"
       type="text"
       id="card-number"
       class="user-input card-input"
@@ -30,9 +30,9 @@
       maxlength="16"
     >
     <input
-      name="cardCvc"
+      name="cvc"
       ngModel
-      #cardCvc="ngModel"
+      #cvc="ngModel"
       type="text"
       id="card-cvc"
       class="user-input card-input"
@@ -47,9 +47,9 @@
       <label for="summary" class="lightgray-text">Сумма</label>
       <input
         class="user-input"
-        name="summary"
+        name="sum"
         ngModel
-        #summary="ngModel"
+        #sum="ngModel"
         type="number"
         id="summary"
         placeholder="от 1000р до 75000р"
